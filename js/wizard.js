@@ -101,7 +101,7 @@ function updateWizardForRules(rules) {
 
   // Or — label personnalisé
   const goldLabel = document.getElementById('wiz-gold-label');
-  if (goldLabel) goldLabel.textContent = rules.goldLabel || 'Pièces d'Or de départ';
+  if (goldLabel) goldLabel.textContent = rules.goldLabel || "Pièces d'Or de départ";
 
   // Équipement hint
   const hint = document.getElementById('wiz-equip-hint');
@@ -138,7 +138,7 @@ function renderExtraStats(extraStats) {
     return;
   }
   container.style.display = 'block';
-  container.innerHTML = '<div style="font-family:var(--font-ui,'Cinzel',serif);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-dark);margin-bottom:8px;">📊 Stats supplémentaires</div>';
+  container.innerHTML = '<div style="font-family:var(--font-ui,serif);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-dark);margin-bottom:8px;">&#128202; Stats suppl&#233;mentaires</div>';
   extraStats.forEach(stat => {
     if (stat.formula === 'fixe') {
       wizExtraStatValues[stat.key] = stat.fixed;
