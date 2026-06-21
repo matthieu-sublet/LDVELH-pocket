@@ -2,22 +2,28 @@
    ui.js — Rendu de l'interface principale
 ══════════════════════════════════════════ */
 
-// ── Panneau Livre (iframe PDF) ───────────
-function renderBookPanel() {
-  const empty  = document.getElementById('book-panel-empty');
-  const viewer = document.getElementById('book-panel-viewer');
-  const iframe = document.getElementById('book-iframe');
-  const label  = document.getElementById('book-panel-label');
-  const extLink = document.getElementById('book-panel-extlink');
+// ── Panneau Livre (PDF via fetch→blob) ───
+let _bookBlobUrl   = null;
+let _bookLoadedNum = null;
 
-  // Trouver le numéro du livre depuis l'état
+function renderBookPanel() {
+  const empty   = document.getElementById('book-panel-empty');
+  const viewer  = document.getElementById('book-panel-viewer');
+  const iframe  = document.getElementById('book-iframe');
+  const loading = document.getElementById('book-loading');
+  const errBox  = document.getElementById('book-error');
+  const label   = document.getElementById('book-panel-label');
+  const extLink = document.getElementById('book-panel-extlink');
+  const errLink = document.getElementById('book-error-link');
+
+  // Trouver le numéro du livre
   let bookNum = state.bookNum || null;
   if (!bookNum && state.book) {
     const m = state.book.match(/^#(\d+)/);
     if (m) bookNum = parseInt(m[1]);
   }
 
-  const book = bookNum ? BOOKS.find(b => b.n === bookNum) : null;
+  const book = bookNum ? BOOKS.find(function(b) { return b.n === bookNum; }) : null;
 
   if (!book || !book.pdf) {
     empty.style.display  = 'flex';
@@ -25,19 +31,53 @@ function renderBookPanel() {
     return;
   }
 
-  const url = BASE_PDF + book.pdf;
+  const directUrl = BASE_PDF + book.pdf;
+  const title     = '#' + book.n + ' — ' + book.t;
 
   empty.style.display  = 'none';
   viewer.style.display = 'flex';
+  if (label)   label.textContent = title;
+  if (extLink) extLink.href = directUrl;
+  if (errLink) errLink.href = directUrl;
 
-  // Charger l'iframe seulement si l'URL a changé (évite rechargement à chaque clic)
-  if (iframe.dataset.loaded !== url) {
-    iframe.src = url;
-    iframe.dataset.loaded = url;
+  // Déjà chargé pour ce livre → rien à faire
+  if (_bookLoadedNum === bookNum && _bookBlobUrl) {
+    iframe.style.display  = 'flex';
+    loading.style.display = 'none';
+    errBox.style.display  = 'none';
+    iframe.src = _bookBlobUrl;
+    return;
   }
 
-  if (label)   label.textContent = '#' + book.n + ' — ' + book.t;
-  if (extLink) extLink.href = url;
+  // Afficher le loader
+  iframe.style.display  = 'none';
+  errBox.style.display  = 'none';
+  loading.style.display = 'flex';
+
+  // Libérer l'ancien blob URL
+  if (_bookBlobUrl) { URL.revokeObjectURL(_bookBlobUrl); _bookBlobUrl = null; }
+
+  // Fetcher le PDF et créer un blob URL (contourne X-Frame-Options)
+  fetch(directUrl)
+    .then(function(res) {
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      return res.blob();
+    })
+    .then(function(blob) {
+      _bookBlobUrl   = URL.createObjectURL(blob);
+      _bookLoadedNum = bookNum;
+
+      loading.style.display = 'none';
+      errBox.style.display  = 'none';
+      iframe.style.display  = 'flex';
+      iframe.src = _bookBlobUrl;
+    })
+    .catch(function(err) {
+      console.warn('PDF fetch failed:', err);
+      loading.style.display = 'none';
+      iframe.style.display  = 'none';
+      errBox.style.display  = 'flex';
+    });
 }
 
 // ── Toast ────────────────────────────────
