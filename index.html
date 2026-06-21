@@ -554,17 +554,27 @@
         <button class="roll-btn primary" onclick="reopenWizard()" style="margin-top:8px;">✦ Choisir un livre</button>
       </div>
       <div id="book-panel-viewer" style="display:none;flex-direction:column;height:100%;">
-        <div id="book-panel-title" style="padding:10px 14px;background:linear-gradient(90deg,rgba(26,15,0,.85),rgba(61,43,15,.85));font-family:'Cinzel',serif;font-size:11px;letter-spacing:2px;color:var(--gold-light);text-transform:uppercase;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;">
-          <span id="book-panel-label">–</span>
-          <a id="book-panel-extlink" href="#" target="_blank" style="color:var(--gold);font-size:11px;text-decoration:none;opacity:.7;" title="Ouvrir dans un nouvel onglet">↗</a>
+        <div style="padding:10px 14px;background:linear-gradient(90deg,rgba(26,15,0,.85),rgba(61,43,15,.85));display:flex;align-items:center;justify-content:space-between;flex-shrink:0;gap:8px;">
+          <span id="book-panel-label" style="font-family:'Cinzel',serif;font-size:11px;letter-spacing:1.5px;color:var(--gold-light);text-transform:uppercase;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">–</span>
+          <a id="book-panel-extlink" href="#" target="_blank" style="color:var(--gold);font-size:18px;text-decoration:none;flex-shrink:0;" title="Ouvrir dans un nouvel onglet">↗</a>
+        </div>
+        <div id="book-loading" style="display:none;flex-direction:column;align-items:center;justify-content:center;padding:40px;gap:16px;flex:1;">
+          <div class="book-spinner"></div>
+          <div style="font-family:'Cinzel',serif;font-size:11px;letter-spacing:2px;color:var(--gold-dark);text-transform:uppercase;">Chargement du livre…</div>
+        </div>
+        <div id="book-error" style="display:none;flex-direction:column;align-items:center;justify-content:center;padding:32px 24px;gap:14px;text-align:center;flex:1;">
+          <div style="font-size:40px;">⚠️</div>
+          <div style="font-family:'Cinzel',serif;font-size:12px;letter-spacing:1px;color:var(--ink);margin-bottom:4px;">Impossible d'afficher le PDF ici</div>
+          <div style="font-size:13px;color:var(--ink-light);line-height:1.7;">Le serveur bloque l'affichage intégré.<br>Ouvrez le livre dans votre navigateur.</div>
+          <a id="book-error-link" href="#" target="_blank" class="roll-btn primary" style="text-decoration:none;margin-top:8px;">📖 Ouvrir le livre</a>
         </div>
         <iframe id="book-iframe"
-          src=""
-          style="flex:1;width:100%;border:none;background:#1a0a00;min-height:calc(100vh - 160px);"
+          src="about:blank"
+          style="flex:1;width:100%;border:none;background:#1a0a00;min-height:calc(100vh - 200px);display:none;"
           allow="fullscreen">
         </iframe>
-        <div style="padding:8px 14px;background:rgba(26,15,0,.05);border-top:1px solid rgba(201,168,76,.2);font-size:11px;color:var(--ink-light);text-align:center;line-height:1.5;">
-          PDF hébergé sur <a href="https://bibl.remz.ca" target="_blank" style="color:var(--gold-dark);">bibl.remz.ca</a> · Usage personnel uniquement
+        <div style="padding:6px 14px;background:rgba(26,15,0,.05);border-top:1px solid rgba(201,168,76,.2);font-size:10px;color:var(--ink-light);text-align:center;flex-shrink:0;">
+          PDF via <a href="https://bibl.remz.ca" target="_blank" style="color:var(--gold-dark);">bibl.remz.ca</a> · Usage personnel uniquement
         </div>
       </div>
     </div>
