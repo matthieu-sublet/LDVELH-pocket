@@ -520,3 +520,13 @@ body,
     color 0.4s ease,
     box-shadow 0.6s ease;
 }
+
+/* ══ PDF LOADER SPINNER ══ */
+.book-spinner {
+  width: 40px; height: 40px;
+  border: 3px solid rgba(201,168,76,.2);
+  border-top-color: var(--gold);
+  border-radius: 50%;
+  animation: spin .8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
