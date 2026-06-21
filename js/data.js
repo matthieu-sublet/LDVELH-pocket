@@ -11,7 +11,7 @@ const POTION_TYPES = {
 };
 
 // ── Livres avec URL PDF ──────────────────
-const BASE_PDF = 'https://bibl.remz.ca/defis_fantastiques-65/';
+const BASE_PDF = 'https://remz.ca/ldvelh/defis_fantastiques-65/';
 
 const BOOKS = [
   { n:  1, t: 'Le Sorcier de la Montagne de Feu',  pdf: 'Defis%20Fantastiques%2001%20-%20Le%20Sorcier%20de%20la%20Montagne%20de%20feu.pdf' },

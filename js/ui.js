@@ -2,8 +2,9 @@
    ui.js — Rendu de l'interface principale
 ══════════════════════════════════════════ */
 
-// ── Panneau Livre (PDF via fetch→blob) ───
-let _bookBlobUrl   = null;
+// ── Panneau Livre (Google PDF Viewer) ────
+// Contourne X-Frame-Options et CORS en utilisant
+// le viewer Google Docs qui peut afficher tout PDF public.
 let _bookLoadedNum = null;
 
 function renderBookPanel() {
@@ -31,8 +32,10 @@ function renderBookPanel() {
     return;
   }
 
-  const directUrl = BASE_PDF + book.pdf;
-  const title     = '#' + book.n + ' — ' + book.t;
+  const directUrl  = BASE_PDF + book.pdf;
+  // Google Docs viewer : affiche un PDF distant sans restriction CORS/X-Frame
+  const viewerUrl  = 'https://docs.google.com/viewer?embedded=true&url=' + encodeURIComponent(directUrl);
+  const title      = '#' + book.n + ' — ' + book.t;
 
   empty.style.display  = 'none';
   viewer.style.display = 'flex';
@@ -40,44 +43,39 @@ function renderBookPanel() {
   if (extLink) extLink.href = directUrl;
   if (errLink) errLink.href = directUrl;
 
-  // Déjà chargé pour ce livre → rien à faire
-  if (_bookLoadedNum === bookNum && _bookBlobUrl) {
-    iframe.style.display  = 'flex';
-    loading.style.display = 'none';
-    errBox.style.display  = 'none';
-    iframe.src = _bookBlobUrl;
-    return;
-  }
+  // Déjà chargé pour ce livre
+  if (_bookLoadedNum === bookNum) return;
+  _bookLoadedNum = bookNum;
 
-  // Afficher le loader
+  // Afficher le loader pendant que Google charge le PDF
   iframe.style.display  = 'none';
   errBox.style.display  = 'none';
   loading.style.display = 'flex';
 
-  // Libérer l'ancien blob URL
-  if (_bookBlobUrl) { URL.revokeObjectURL(_bookBlobUrl); _bookBlobUrl = null; }
+  // Timeout de sécurité : si Google ne répond pas en 15s → fallback
+  const timeout = setTimeout(function() {
+    loading.style.display = 'none';
+    errBox.style.display  = 'flex';
+    iframe.style.display  = 'none';
+    _bookLoadedNum = null;
+  }, 15000);
 
-  // Fetcher le PDF et créer un blob URL (contourne X-Frame-Options)
-  fetch(directUrl)
-    .then(function(res) {
-      if (!res.ok) throw new Error('HTTP ' + res.status);
-      return res.blob();
-    })
-    .then(function(blob) {
-      _bookBlobUrl   = URL.createObjectURL(blob);
-      _bookLoadedNum = bookNum;
+  iframe.onload = function() {
+    clearTimeout(timeout);
+    loading.style.display = 'none';
+    errBox.style.display  = 'none';
+    iframe.style.display  = 'flex';
+  };
 
-      loading.style.display = 'none';
-      errBox.style.display  = 'none';
-      iframe.style.display  = 'flex';
-      iframe.src = _bookBlobUrl;
-    })
-    .catch(function(err) {
-      console.warn('PDF fetch failed:', err);
-      loading.style.display = 'none';
-      iframe.style.display  = 'none';
-      errBox.style.display  = 'flex';
-    });
+  iframe.onerror = function() {
+    clearTimeout(timeout);
+    loading.style.display = 'none';
+    errBox.style.display  = 'flex';
+    iframe.style.display  = 'none';
+    _bookLoadedNum = null;
+  };
+
+  iframe.src = viewerUrl;
 }
 
 // ── Toast ────────────────────────────────
