@@ -1,302 +1,302 @@
 {
-    "24 - La Créature venue du Chaos": {
-        "titre": "24 - La Créature Venue Du Chaos",
-        "nom_fichier": "24 - La Créature venue du Chaos.pdf",
-        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/24 - La Créature venue du Chaos.pdf"
-    },
-    "65 - Massacre à la Tronçonneuse de Zombies": {
-        "titre": "65 - Massacre À La Tronçonneuse De Zombies",
-        "nom_fichier": "65 - Massacre à la Tronçonneuse de Zombies.pdf",
-        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/65 - Massacre à la Tronçonneuse de Zombies.pdf"
-    },
-    "56 - Le Chasseur de Mages": {
-        "titre": "56 - Le Chasseur De Mages",
-        "nom_fichier": "56 - Le Chasseur de Mages.pdf",
-        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/56 - Le Chasseur de Mages.pdf"
-    },
-    "07 - L_ile du Roi Lézard": {
-        "titre": "07 - L Ile Du Roi Lézard",
-        "nom_fichier": "07 - L_ile du Roi Lézard.pdf",
-        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/07 - L_ile du Roi Lézard.pdf"
-    },
-    "33 - Le Justicier de l_Univers": {
-        "titre": "33 - Le Justicier De L Univers",
-        "nom_fichier": "33 - Le Justicier de l_Univers.pdf",
-        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/33 - Le Justicier de l_Univers.pdf"
-    },
-    "53 - Le Sépulcre des Ombres": {
-        "titre": "53 - Le Sépulcre Des Ombres",
-        "nom_fichier": "53 - Le Sépulcre des Ombres.pdf",
-        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/53 - Le Sépulcre des Ombres.pdf"
-    },
-    "20 - L_Epée du Samouraï": {
-        "titre": "20 - L Epée Du Samouraï",
-        "nom_fichier": "20 - L_Epée du Samouraï.pdf",
-        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/20 - L_Epée du Samouraï.pdf"
-    },
-    "52 - La Légende de Zagor": {
-        "titre": "52 - La Légende De Zagor",
-        "nom_fichier": "52 - La Légende de Zagor.pdf",
-        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/52 - La Légende de Zagor.pdf"
-    },
-    "62 - Les Hurlements du Loup-Garou": {
-        "titre": "62 - Les Hurlements Du Loup-Garou",
-        "nom_fichier": "62 - Les Hurlements du Loup-Garou.pdf",
-        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/62 - Les Hurlements du Loup-Garou.pdf"
-    },
-    "02 - La Citadelle du Chaos": {
-        "titre": "02 - La Citadelle Du Chaos",
-        "nom_fichier": "02 - La Citadelle du Chaos.pdf",
-        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/02 - La Citadelle du Chaos.pdf"
-    },
-    "55 - Les Chevaliers du Destin": {
-        "titre": "55 - Les Chevaliers Du Destin",
-        "nom_fichier": "55 - Les Chevaliers du Destin.pdf",
-        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/55 - Les Chevaliers du Destin.pdf"
-    },
-    "22 - La Grande Menace des Robots": {
-        "titre": "22 - La Grande Menace Des Robots",
-        "nom_fichier": "22 - La Grande Menace des Robots.pdf",
-        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/22 - La Grande Menace des Robots.pdf"
-    },
-    "12 - Le Mercenaire de l_Espace": {
-        "titre": "12 - Le Mercenaire De L Espace",
-        "nom_fichier": "12 - Le Mercenaire de l_Espace.pdf",
-        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/12 - Le Mercenaire de l_Espace.pdf"
-    },
-    "31 - L_Empire des Hommes-Lézards": {
-        "titre": "31 - L Empire Des Hommes-Lézards",
-        "nom_fichier": "31 - L_Empire des Hommes-Lézards.pdf",
-        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/31 - L_Empire des Hommes-Lézards.pdf"
-    },
-    "15 - Les Trafiquants de Kelter": {
-        "titre": "15 - Les Trafiquants De Kelter",
-        "nom_fichier": "15 - Les Trafiquants de Kelter.pdf",
-        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/15 - Les Trafiquants de Kelter.pdf"
-    },
-    "21 - L_Epreuve des Champions": {
-        "titre": "21 - L Epreuve Des Champions",
-        "nom_fichier": "21 - L_Epreuve des Champions.pdf",
-        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/21 - L_Epreuve des Champions.pdf"
-    },
-    "01 - Le Sorcier de la Montagne de Feu": {
+    "51cdae99-c586-4bf9-b789-03131b276fd5": {
+        "numéro du volume": "01",
         "titre": "01 - Le Sorcier De La Montagne De Feu",
-        "nom_fichier": "01 - Le Sorcier de la Montagne de Feu.pdf",
         "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/01 - Le Sorcier de la Montagne de Feu.pdf"
     },
-    "49 - Le Siège de Sardath": {
-        "titre": "49 - Le Siège De Sardath",
-        "nom_fichier": "49 - Le Siège de Sardath.pdf",
-        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/49 - Le Siège de Sardath.pdf"
+    "9253d2a8-f698-42db-8241-b4a381490f63": {
+        "numéro du volume": "02",
+        "titre": "02 - La Citadelle Du Chaos",
+        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/02 - La Citadelle du Chaos.pdf"
     },
-    "11 - Le Talisman de la Mort": {
-        "titre": "11 - Le Talisman De La Mort",
-        "nom_fichier": "11 - Le Talisman de la Mort.pdf",
-        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/11 - Le Talisman de la Mort.pdf"
-    },
-    "09 - La Sorcière des Neiges": {
-        "titre": "09 - La Sorcière Des Neiges",
-        "nom_fichier": "09 - La Sorcière des Neiges.pdf",
-        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/09 - La Sorcière des Neiges.pdf"
-    },
-    "37 - Les Sombres Cohortes": {
-        "titre": "37 - Les Sombres Cohortes",
-        "nom_fichier": "37 - Les Sombres Cohortes.pdf",
-        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/37 - Les Sombres Cohortes.pdf"
-    },
-    "40 - Le Sceptre Noir": {
-        "titre": "40 - Le Sceptre Noir",
-        "nom_fichier": "40 - Le Sceptre Noir.pdf",
-        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/40 - Le Sceptre Noir.pdf"
-    },
-    "08 - Le Marais aux Scorpions": {
-        "titre": "08 - Le Marais Aux Scorpions",
-        "nom_fichier": "08 - Le Marais aux Scorpions.pdf",
-        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/08 - Le Marais aux Scorpions.pdf"
-    },
-    "64 - La Nuit du Nécromancien": {
-        "titre": "64 - La Nuit Du Nécromancien",
-        "nom_fichier": "64 - La Nuit du Nécromancien.pdf",
-        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/64 - La Nuit du Nécromancien.pdf"
-    },
-    "35 - Le Vampire du Château Noir": {
-        "titre": "35 - Le Vampire Du Château Noir",
-        "nom_fichier": "35 - Le Vampire du Château Noir.pdf",
-        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/35 - Le Vampire du Château Noir.pdf"
-    },
-    "25 - La Forteresse du Cauchemar": {
-        "titre": "25 - La Forteresse Du Cauchemar",
-        "nom_fichier": "25 - La Forteresse du Cauchemar.pdf",
-        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/25 - La Forteresse du Cauchemar.pdf"
-    },
-    "29 - Les Rôdeurs de la nuit": {
-        "titre": "29 - Les Rôdeurs De La Nuit",
-        "nom_fichier": "29 - Les Rôdeurs de la nuit.pdf",
-        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/29 - Les Rôdeurs de la nuit.pdf"
-    },
-    "23 - Les Sceaux de la Destruction": {
-        "titre": "23 - Les Sceaux De La Destruction",
-        "nom_fichier": "23 - Les Sceaux de la Destruction.pdf",
-        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/23 - Les Sceaux de la Destruction.pdf"
-    },
-    "17 - Rendez-vous avec la MORT": {
-        "titre": "17 - Rendez-Vous Avec La Mort",
-        "nom_fichier": "17 - Rendez-vous avec la MORT.pdf",
-        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/17 - Rendez-vous avec la MORT.pdf"
-    },
-    "26 - La Crypte du Sorcier": {
-        "titre": "26 - La Crypte Du Sorcier",
-        "nom_fichier": "26 - La Crypte du Sorcier.pdf",
-        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/26 - La Crypte du Sorcier.pdf"
-    },
-    "59 - La Malédiction de la Momie": {
-        "titre": "59 - La Malédiction De La Momie",
-        "nom_fichier": "59 - La Malédiction de la Momie.pdf",
-        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/59 - La Malédiction de la Momie.pdf"
-    },
-    "38 - L_Elu des Six Clans": {
-        "titre": "38 - L Elu Des Six Clans",
-        "nom_fichier": "38 - L_Elu des Six Clans.pdf",
-        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/38 - L_Elu des Six Clans.pdf"
-    },
-    "27 - Le Chasseur des Etoiles": {
-        "titre": "27 - Le Chasseur Des Etoiles",
-        "nom_fichier": "27 - Le Chasseur des Etoiles.pdf",
-        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/27 - Le Chasseur des Etoiles.pdf"
-    },
-    "47 - Les Mercenaires du Levant": {
-        "titre": "47 - Les Mercenaires Du Levant",
-        "nom_fichier": "47 - Les Mercenaires du Levant.pdf",
-        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/47 - Les Mercenaires du Levant.pdf"
-    },
-    "58 - Le Dragon de la Nuit": {
-        "titre": "58 - Le Dragon De La Nuit",
-        "nom_fichier": "58 - Le Dragon de la Nuit.pdf",
-        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/58 - Le Dragon de la Nuit.pdf"
-    },
-    "39 - Le Volcan de Zamarra": {
-        "titre": "39 - Le Volcan De Zamarra",
-        "nom_fichier": "39 - Le Volcan de Zamarra.pdf",
-        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/39 - Le Volcan de Zamarra.pdf"
-    },
-    "16 - Défis sanglants sur l_Océan": {
-        "titre": "16 - Défis Sanglants Sur L Océan",
-        "nom_fichier": "16 - Défis sanglants sur l_Océan.pdf",
-        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/16 - Défis sanglants sur l_Océan.pdf"
-    },
-    "30 - Le Gouffre de la Cruauté": {
-        "titre": "30 - Le Gouffre De La Cruauté",
-        "nom_fichier": "30 - Le Gouffre de la Cruauté.pdf",
-        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/30 - Le Gouffre de la Cruauté.pdf"
-    },
-    "34 - Le Voleur d_Ames": {
-        "titre": "34 - Le Voleur D Ames",
-        "nom_fichier": "34 - Le Voleur d_Ames.pdf",
-        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/34 - Le Voleur d_Ames.pdf"
-    },
-    "32 - Les Esclaves de l_Eternité": {
-        "titre": "32 - Les Esclaves De L Eternité",
-        "nom_fichier": "32 - Les Esclaves de l_Eternité.pdf",
-        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/32 - Les Esclaves de l_Eternité.pdf"
-    },
-    "10 - Le Manoir de l_Enfer": {
-        "titre": "10 - Le Manoir De L Enfer",
-        "nom_fichier": "10 - Le Manoir de l_Enfer.pdf",
-        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/10 - Le Manoir de l_Enfer.pdf"
-    },
-    "19 - Les Démons des Profondeurs": {
-        "titre": "19 - Les Démons Des Profondeurs",
-        "nom_fichier": "19 - Les Démons des Profondeurs.pdf",
-        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/19 - Les Démons des Profondeurs.pdf"
-    },
-    "18 - La Planète Rebelle": {
-        "titre": "18 - La Planète Rebelle",
-        "nom_fichier": "18 - La Planète Rebelle.pdf",
-        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/18 - La Planète Rebelle.pdf"
-    },
-    "50 - Retour à la Montagne de Feu": {
-        "titre": "50 - Retour À La Montagne De Feu",
-        "nom_fichier": "50 - Retour à la Montagne de Feu.pdf",
-        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/50 - Retour à la Montagne de Feu.pdf"
-    },
-    "04 - La Galaxie Tragique": {
-        "titre": "04 - La Galaxie Tragique",
-        "nom_fichier": "04 - La Galaxie Tragique.pdf",
-        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/04 - La Galaxie Tragique.pdf"
-    },
-    "13 - Le Combattant de l_Autoroute": {
-        "titre": "13 - Le Combattant De L Autoroute",
-        "nom_fichier": "13 - Le Combattant de l_Autoroute.pdf",
-        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/13 - Le Combattant de l_Autoroute.pdf"
-    },
-    "05 - La Cité des Voleurs": {
-        "titre": "05 - La Cité Des Voleurs",
-        "nom_fichier": "05 - La Cité des Voleurs.pdf",
-        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/05 - La Cité des Voleurs.pdf"
-    },
-    "14 - Le Temple de la Terreur": {
-        "titre": "14 - Le Temple De La Terreur",
-        "nom_fichier": "14 - Le Temple de la Terreur.pdf",
-        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/14 - Le Temple de la Terreur.pdf"
-    },
-    "36 - La Nuit des Mutants": {
-        "titre": "36 - La Nuit Des Mutants",
-        "nom_fichier": "36 - La Nuit des Mutants.pdf",
-        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/36 - La Nuit des Mutants.pdf"
-    },
-    "61 - Les Pirates du Crâne Noir": {
-        "titre": "61 - Les Pirates Du Crâne Noir",
-        "nom_fichier": "61 - Les Pirates du Crâne Noir.pdf",
-        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/61 - Les Pirates du Crâne Noir.pdf"
-    },
-    "28 - Les Spectres de l_Angoisse": {
-        "titre": "28 - Les Spectres De L Angoisse",
-        "nom_fichier": "28 - Les Spectres de l_Angoisse.pdf",
-        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/28 - Les Spectres de l_Angoisse.pdf"
-    },
-    "06 - Le Labyrinthe de la Mort": {
-        "titre": "06 - Le Labyrinthe De La Mort",
-        "nom_fichier": "06 - Le Labyrinthe de la Mort.pdf",
-        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/06 - Le Labyrinthe de la Mort.pdf"
-    },
-    "57 - La Revanche du Vampire": {
-        "titre": "57 - La Revanche Du Vampire",
-        "nom_fichier": "57 - La Revanche du Vampire.pdf",
-        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/57 - La Revanche du Vampire.pdf"
-    },
-    "51 - Les Mages de Solani": {
-        "titre": "51 - Les Mages De Solani",
-        "nom_fichier": "51 - Les Mages de Solani.pdf",
-        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/51 - Les Mages de Solani.pdf"
-    },
-    "03 - La Forêt de la Malédiction": {
+    "988be156-9cdd-42df-a400-bbe760c87190": {
+        "numéro du volume": "03",
         "titre": "03 - La Forêt De La Malédiction",
-        "nom_fichier": "03 - La Forêt de la Malédiction.pdf",
         "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/03 - La Forêt de la Malédiction.pdf"
     },
-    "54 - Le Voleur de Vie": {
-        "titre": "54 - Le Voleur De Vie",
-        "nom_fichier": "54 - Le Voleur de Vie.pdf",
-        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/54 - Le Voleur de Vie.pdf"
+    "b4ba620f-cee1-477b-a0cf-4d263d87ed27": {
+        "numéro du volume": "04",
+        "titre": "04 - La Galaxie Tragique",
+        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/04 - La Galaxie Tragique.pdf"
     },
-    "63 - Le Chasseur de Tempêtes": {
-        "titre": "63 - Le Chasseur De Tempêtes",
-        "nom_fichier": "63 - Le Chasseur de Tempêtes.pdf",
-        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/63 - Le Chasseur de Tempêtes.pdf"
+    "2e679bb8-231b-42ec-a2b5-fc726966d720": {
+        "numéro du volume": "05",
+        "titre": "05 - La Cité Des Voleurs",
+        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/05 - La Cité des Voleurs.pdf"
     },
-    "46 - L_Arpenteur de la Lune": {
+    "b89900d3-0e0f-4156-9980-349c827ab771": {
+        "numéro du volume": "06",
+        "titre": "06 - Le Labyrinthe De La Mort",
+        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/06 - Le Labyrinthe de la Mort.pdf"
+    },
+    "6c1e22d0-710d-4d25-b66f-7bee61978185": {
+        "numéro du volume": "07",
+        "titre": "07 - L Ile Du Roi Lézard",
+        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/07 - L_ile du Roi Lézard.pdf"
+    },
+    "ac5ac37c-f5e8-43a1-ac67-3c7ee15e6c86": {
+        "numéro du volume": "08",
+        "titre": "08 - Le Marais Aux Scorpions",
+        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/08 - Le Marais aux Scorpions.pdf"
+    },
+    "543c2beb-58e2-4797-91cc-aae0101e7019": {
+        "numéro du volume": "09",
+        "titre": "09 - La Sorcière Des Neiges",
+        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/09 - La Sorcière des Neiges.pdf"
+    },
+    "70725b26-9f72-402e-97a7-501300c1417f": {
+        "numéro du volume": "10",
+        "titre": "10 - Le Manoir De L Enfer",
+        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/10 - Le Manoir de l_Enfer.pdf"
+    },
+    "2be999cb-2c64-4e88-93da-7df76a773b73": {
+        "numéro du volume": "11",
+        "titre": "11 - Le Talisman De La Mort",
+        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/11 - Le Talisman de la Mort.pdf"
+    },
+    "bcce6ae7-6d49-492a-829b-96a96677ea92": {
+        "numéro du volume": "12",
+        "titre": "12 - Le Mercenaire De L Espace",
+        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/12 - Le Mercenaire de l_Espace.pdf"
+    },
+    "1badffe3-3e64-4c8f-a85b-81f6948373a6": {
+        "numéro du volume": "13",
+        "titre": "13 - Le Combattant De L Autoroute",
+        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/13 - Le Combattant de l_Autoroute.pdf"
+    },
+    "2d0dcc95-a623-42b0-9dd9-9ca1f1b0dd6d": {
+        "numéro du volume": "14",
+        "titre": "14 - Le Temple De La Terreur",
+        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/14 - Le Temple de la Terreur.pdf"
+    },
+    "69cab9de-f644-454e-954d-7239e69ab23b": {
+        "numéro du volume": "15",
+        "titre": "15 - Les Trafiquants De Kelter",
+        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/15 - Les Trafiquants de Kelter.pdf"
+    },
+    "8682c929-c17f-4a54-95d1-09bb3ecaed8c": {
+        "numéro du volume": "16",
+        "titre": "16 - Défis Sanglants Sur L Océan",
+        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/16 - Défis sanglants sur l_Océan.pdf"
+    },
+    "db01242e-8597-4900-a112-60153d390ad0": {
+        "numéro du volume": "17",
+        "titre": "17 - Rendez-Vous Avec La Mort",
+        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/17 - Rendez-vous avec la MORT.pdf"
+    },
+    "b2f2a235-dd56-4da9-b926-6d4547f684e1": {
+        "numéro du volume": "18",
+        "titre": "18 - La Planète Rebelle",
+        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/18 - La Planète Rebelle.pdf"
+    },
+    "0f3b9bb4-3994-4b37-a619-b9e3b3932540": {
+        "numéro du volume": "19",
+        "titre": "19 - Les Démons Des Profondeurs",
+        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/19 - Les Démons des Profondeurs.pdf"
+    },
+    "901ed06d-631a-46f3-959a-fd9a8ef52985": {
+        "numéro du volume": "20",
+        "titre": "20 - L Epée Du Samouraï",
+        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/20 - L_Epée du Samouraï.pdf"
+    },
+    "1d8799a0-ac16-451c-b96f-267b7a0a6a25": {
+        "numéro du volume": "21",
+        "titre": "21 - L Epreuve Des Champions",
+        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/21 - L_Epreuve des Champions.pdf"
+    },
+    "c784e241-4d91-4f29-94e4-3c0d9f76b880": {
+        "numéro du volume": "22",
+        "titre": "22 - La Grande Menace Des Robots",
+        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/22 - La Grande Menace des Robots.pdf"
+    },
+    "e612d619-360e-479b-90fd-e3aa97d6567d": {
+        "numéro du volume": "23",
+        "titre": "23 - Les Sceaux De La Destruction",
+        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/23 - Les Sceaux de la Destruction.pdf"
+    },
+    "9d25a65d-0d09-4e4c-b12c-840601280416": {
+        "numéro du volume": "24",
+        "titre": "24 - La Créature Venue Du Chaos",
+        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/24 - La Créature venue du Chaos.pdf"
+    },
+    "0679c43c-3da8-4923-9047-65096d9dadfd": {
+        "numéro du volume": "25",
+        "titre": "25 - La Forteresse Du Cauchemar",
+        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/25 - La Forteresse du Cauchemar.pdf"
+    },
+    "db868fff-6d41-440f-b161-f97529f8a11d": {
+        "numéro du volume": "26",
+        "titre": "26 - La Crypte Du Sorcier",
+        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/26 - La Crypte du Sorcier.pdf"
+    },
+    "b61ad393-d12b-4bff-93c3-c13b65d96ae9": {
+        "numéro du volume": "27",
+        "titre": "27 - Le Chasseur Des Etoiles",
+        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/27 - Le Chasseur des Etoiles.pdf"
+    },
+    "794dab1c-d7c4-4e98-a3b9-5766e5d59ffb": {
+        "numéro du volume": "28",
+        "titre": "28 - Les Spectres De L Angoisse",
+        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/28 - Les Spectres de l_Angoisse.pdf"
+    },
+    "2ff924d2-b16b-4a70-842e-ea5d32640653": {
+        "numéro du volume": "29",
+        "titre": "29 - Les Rôdeurs De La Nuit",
+        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/29 - Les Rôdeurs de la nuit.pdf"
+    },
+    "2bfd383b-d411-43ff-b014-39c5becdb0e2": {
+        "numéro du volume": "30",
+        "titre": "30 - Le Gouffre De La Cruauté",
+        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/30 - Le Gouffre de la Cruauté.pdf"
+    },
+    "0b87e41e-e546-4e54-80b6-a06871f1f24a": {
+        "numéro du volume": "31",
+        "titre": "31 - L Empire Des Hommes-Lézards",
+        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/31 - L_Empire des Hommes-Lézards.pdf"
+    },
+    "d2651fa6-c630-4ab8-b169-d321fc258683": {
+        "numéro du volume": "32",
+        "titre": "32 - Les Esclaves De L Eternité",
+        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/32 - Les Esclaves de l_Eternité.pdf"
+    },
+    "6db26173-fdc1-424c-8c15-87591e90f43d": {
+        "numéro du volume": "33",
+        "titre": "33 - Le Justicier De L Univers",
+        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/33 - Le Justicier de l_Univers.pdf"
+    },
+    "8340f0b5-638e-40ae-8def-f69b6ad0bf25": {
+        "numéro du volume": "34",
+        "titre": "34 - Le Voleur D Ames",
+        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/34 - Le Voleur d_Ames.pdf"
+    },
+    "052f3246-360c-4318-9abf-a42247d47b53": {
+        "numéro du volume": "35",
+        "titre": "35 - Le Vampire Du Château Noir",
+        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/35 - Le Vampire du Château Noir.pdf"
+    },
+    "6c9e03da-eca4-4a77-acaf-c661c0f0c061": {
+        "numéro du volume": "36",
+        "titre": "36 - La Nuit Des Mutants",
+        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/36 - La Nuit des Mutants.pdf"
+    },
+    "be1815d9-d1fe-4ba8-bd67-0809e73b08c0": {
+        "numéro du volume": "37",
+        "titre": "37 - Les Sombres Cohortes",
+        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/37 - Les Sombres Cohortes.pdf"
+    },
+    "792f2d87-42da-47d7-84be-50a8bc448bab": {
+        "numéro du volume": "38",
+        "titre": "38 - L Elu Des Six Clans",
+        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/38 - L_Elu des Six Clans.pdf"
+    },
+    "6bac3f3a-bda9-417a-8bd0-f64d727a4ce4": {
+        "numéro du volume": "39",
+        "titre": "39 - Le Volcan De Zamarra",
+        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/39 - Le Volcan de Zamarra.pdf"
+    },
+    "860a36e2-6f17-4811-9704-a2df6a4571a8": {
+        "numéro du volume": "40",
+        "titre": "40 - Le Sceptre Noir",
+        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/40 - Le Sceptre Noir.pdf"
+    },
+    "da0dffb7-9517-4857-be3b-14da8cfecc4f": {
+        "numéro du volume": "41",
         "titre": "46 - L Arpenteur De La Lune",
-        "nom_fichier": "46 - L_Arpenteur de la Lune.pdf",
         "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/46 - L_Arpenteur de la Lune.pdf"
     },
-    "60 - L’Œil d’Émeraude": {
+    "e4d8cc71-f2b4-4fa3-9235-520af3e3106a": {
+        "numéro du volume": "42",
+        "titre": "47 - Les Mercenaires Du Levant",
+        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/47 - Les Mercenaires du Levant.pdf"
+    },
+    "babd1200-7059-465d-8e01-fbdcc1c11940": {
+        "numéro du volume": "43",
+        "titre": "48 - Les Mondes De L Aleph",
+        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/48 - Les Mondes de l_Aleph.pdf"
+    },
+    "c07d1220-7877-4d0d-84be-c22e362ada70": {
+        "numéro du volume": "44",
+        "titre": "49 - Le Siège De Sardath",
+        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/49 - Le Siège de Sardath.pdf"
+    },
+    "50d52fbe-6f87-4f94-89bb-475078a6e600": {
+        "numéro du volume": "45",
+        "titre": "50 - Retour À La Montagne De Feu",
+        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/50 - Retour à la Montagne de Feu.pdf"
+    },
+    "94e10c4a-eed3-4a37-afcf-a03d1806d95e": {
+        "numéro du volume": "46",
+        "titre": "51 - Les Mages De Solani",
+        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/51 - Les Mages de Solani.pdf"
+    },
+    "a2d48c04-bb24-41d3-9828-e9887ae5b5a3": {
+        "numéro du volume": "47",
+        "titre": "52 - La Légende De Zagor",
+        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/52 - La Légende de Zagor.pdf"
+    },
+    "966627ea-022c-48ac-a33a-7f404c484f0f": {
+        "numéro du volume": "48",
+        "titre": "53 - Le Sépulcre Des Ombres",
+        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/53 - Le Sépulcre des Ombres.pdf"
+    },
+    "e0493ca3-e62e-47b3-9969-fb4e3f6b13c4": {
+        "numéro du volume": "49",
+        "titre": "54 - Le Voleur De Vie",
+        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/54 - Le Voleur de Vie.pdf"
+    },
+    "cae79cf8-0756-4376-84b5-d3228ef0c1b7": {
+        "numéro du volume": "50",
+        "titre": "55 - Les Chevaliers Du Destin",
+        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/55 - Les Chevaliers du Destin.pdf"
+    },
+    "f0ddfddd-6ee9-41d9-bf7e-d7332ff86952": {
+        "numéro du volume": "51",
+        "titre": "56 - Le Chasseur De Mages",
+        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/56 - Le Chasseur de Mages.pdf"
+    },
+    "c3ef1a60-ef95-409f-bd30-b2695c48377c": {
+        "numéro du volume": "52",
+        "titre": "57 - La Revanche Du Vampire",
+        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/57 - La Revanche du Vampire.pdf"
+    },
+    "817324ea-288f-4d01-8869-1a6d3a9d6e67": {
+        "numéro du volume": "53",
+        "titre": "58 - Le Dragon De La Nuit",
+        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/58 - Le Dragon de la Nuit.pdf"
+    },
+    "668663c4-8364-432b-a53a-b29c54e61d9d": {
+        "numéro du volume": "54",
+        "titre": "59 - La Malédiction De La Momie",
+        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/59 - La Malédiction de la Momie.pdf"
+    },
+    "c9be9ecb-3e8d-47ce-866b-c1ff38ba0719": {
+        "numéro du volume": "55",
         "titre": "60 - L’Œil D’Émeraude",
-        "nom_fichier": "60 - L’Œil d’Émeraude.pdf",
         "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/60 - L’Œil d’Émeraude.pdf"
     },
-    "48 - Les Mondes de l_Aleph": {
-        "titre": "48 - Les Mondes De L Aleph",
-        "nom_fichier": "48 - Les Mondes de l_Aleph.pdf",
-        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/48 - Les Mondes de l_Aleph.pdf"
+    "20de90bf-7a32-49a6-8bb9-244f1257d331": {
+        "numéro du volume": "56",
+        "titre": "61 - Les Pirates Du Crâne Noir",
+        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/61 - Les Pirates du Crâne Noir.pdf"
+    },
+    "a64e2515-f572-4275-955d-9da5a8397a17": {
+        "numéro du volume": "57",
+        "titre": "62 - Les Hurlements Du Loup-Garou",
+        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/62 - Les Hurlements du Loup-Garou.pdf"
+    },
+    "11fa9e01-3db7-4757-b61a-fd2a816bf23b": {
+        "numéro du volume": "58",
+        "titre": "63 - Le Chasseur De Tempêtes",
+        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/63 - Le Chasseur de Tempêtes.pdf"
+    },
+    "8dd1c502-3989-498e-8da1-a253ea9e0b1a": {
+        "numéro du volume": "59",
+        "titre": "64 - La Nuit Du Nécromancien",
+        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/64 - La Nuit du Nécromancien.pdf"
+    },
+    "b8849742-0e79-489b-95b7-7f95a732d08c": {
+        "numéro du volume": "60",
+        "titre": "65 - Massacre À La Tronçonneuse De Zombies",
+        "url": "https://raw.githubusercontent.com/matthieu-sublet/LDVELH-pocket/main/books/65 - Massacre à la Tronçonneuse de Zombies.pdf"
     }
 }
