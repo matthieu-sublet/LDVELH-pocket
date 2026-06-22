@@ -499,7 +499,7 @@ function generateName() {
 function openBookPDF(n) {
   const book = BOOKS.find(b => b.n === n);
   if (!book || !book.pdf) { toast('❌ PDF non disponible pour ce livre.'); return; }
-  window.open(BASE_PDF + book.pdf, '_blank');
+  window.open(book.pdf, '_blank');
 }
 
 // ── Liste des livres ──────────────────────

@@ -2,29 +2,51 @@
    ui.js — Rendu de l'interface principale
 ══════════════════════════════════════════ */
 
-// ── Panneau Livre (Google PDF Viewer) ────
-// Contourne X-Frame-Options et CORS en utilisant
-// le viewer Google Docs qui peut afficher tout PDF public.
-let _bookLoadedNum = null;
+// ── Panneau Livre (PDF.js) ───────────────
+// PDF.js via CDN — affichage natif avec liens internes cliquables
+const PDFJS_WORKER = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+const PDFJS_LIB    = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js';
+
+let _pdfJsLoaded    = false;
+let _pdfJsLoading   = false;
+let _pdfDoc         = null;
+let _pdfCurrentPage = 1;
+let _pdfTotalPages  = 0;
+let _pdfLoadedNum   = null;
+let _pdfScale       = 1.5;
+
+function loadPdfJs(cb) {
+  if (_pdfJsLoaded) { cb(); return; }
+  if (_pdfJsLoading) { setTimeout(function(){ loadPdfJs(cb); }, 100); return; }
+  _pdfJsLoading = true;
+  var s = document.createElement('script');
+  s.src = PDFJS_LIB;
+  s.onload = function() {
+    pdfjsLib.GlobalWorkerOptions.workerSrc = PDFJS_WORKER;
+    _pdfJsLoaded  = true;
+    _pdfJsLoading = false;
+    cb();
+  };
+  s.onerror = function() { _pdfJsLoading = false; showBookError(); };
+  document.head.appendChild(s);
+}
 
 function renderBookPanel() {
-  const empty   = document.getElementById('book-panel-empty');
-  const viewer  = document.getElementById('book-panel-viewer');
-  const iframe  = document.getElementById('book-iframe');
-  const loading = document.getElementById('book-loading');
-  const errBox  = document.getElementById('book-error');
-  const label   = document.getElementById('book-panel-label');
-  const extLink = document.getElementById('book-panel-extlink');
-  const errLink = document.getElementById('book-error-link');
+  var empty   = document.getElementById('book-panel-empty');
+  var viewer  = document.getElementById('book-panel-viewer');
+  var loading = document.getElementById('book-loading');
+  var errBox  = document.getElementById('book-error');
+  var label   = document.getElementById('book-panel-label');
+  var extLink = document.getElementById('book-panel-extlink');
+  var errLink = document.getElementById('book-error-link');
 
-  // Trouver le numéro du livre
-  let bookNum = state.bookNum || null;
+  // Trouver le livre
+  var bookNum = state.bookNum || null;
   if (!bookNum && state.book) {
-    const m = state.book.match(/^#(\d+)/);
+    var m = state.book.match(/^#(\d+)/);
     if (m) bookNum = parseInt(m[1]);
   }
-
-  const book = bookNum ? BOOKS.find(function(b) { return b.n === bookNum; }) : null;
+  var book = bookNum ? BOOKS.find(function(b){ return b.n === bookNum; }) : null;
 
   if (!book || !book.pdf) {
     empty.style.display  = 'flex';
@@ -32,50 +54,166 @@ function renderBookPanel() {
     return;
   }
 
-  const directUrl  = BASE_PDF + book.pdf;
-  // Google Docs viewer : affiche un PDF distant sans restriction CORS/X-Frame
-  const viewerUrl  = 'https://docs.google.com/viewer?embedded=true&url=' + encodeURIComponent(directUrl);
-  const title      = '#' + book.n + ' — ' + book.t;
+  var pdfUrl = book.pdf; // URL complète GitHub raw
+  var title  = '#' + book.n + ' — ' + book.t;
 
   empty.style.display  = 'none';
   viewer.style.display = 'flex';
   if (label)   label.textContent = title;
-  if (extLink) extLink.href = directUrl;
-  if (errLink) errLink.href = directUrl;
+  if (extLink) extLink.href = pdfUrl;
+  if (errLink) errLink.href = pdfUrl;
 
-  // Déjà chargé pour ce livre
-  if (_bookLoadedNum === bookNum) return;
-  _bookLoadedNum = bookNum;
+  // Déjà chargé
+  if (_pdfLoadedNum === bookNum && _pdfDoc) {
+    showPdfPage(_pdfCurrentPage);
+    return;
+  }
 
-  // Afficher le loader pendant que Google charge le PDF
-  iframe.style.display  = 'none';
-  errBox.style.display  = 'none';
-  loading.style.display = 'flex';
+  // Reset
+  _pdfDoc       = null;
+  _pdfLoadedNum = null;
+  showBookLoading();
 
-  // Timeout de sécurité : si Google ne répond pas en 15s → fallback
-  const timeout = setTimeout(function() {
-    loading.style.display = 'none';
-    errBox.style.display  = 'flex';
-    iframe.style.display  = 'none';
-    _bookLoadedNum = null;
-  }, 15000);
+  loadPdfJs(function() {
+    pdfjsLib.getDocument(pdfUrl).promise.then(function(doc) {
+      _pdfDoc         = doc;
+      _pdfTotalPages  = doc.numPages;
+      _pdfCurrentPage = 1;
+      _pdfLoadedNum   = bookNum;
+      updatePdfControls();
+      showPdfPage(1);
+    }).catch(function(err) {
+      console.warn('PDF.js error:', err);
+      showBookError();
+    });
+  });
+}
 
-  iframe.onload = function() {
-    clearTimeout(timeout);
-    loading.style.display = 'none';
-    errBox.style.display  = 'none';
-    iframe.style.display  = 'flex';
-  };
+function showBookLoading() {
+  var iframe  = document.getElementById('book-iframe');
+  var loading = document.getElementById('book-loading');
+  var errBox  = document.getElementById('book-error');
+  var canvas  = document.getElementById('pdf-canvas-wrap');
+  if (iframe)  iframe.style.display  = 'none';
+  if (errBox)  errBox.style.display  = 'none';
+  if (canvas)  canvas.style.display  = 'none';
+  if (loading) loading.style.display = 'flex';
+}
 
-  iframe.onerror = function() {
-    clearTimeout(timeout);
-    loading.style.display = 'none';
-    errBox.style.display  = 'flex';
-    iframe.style.display  = 'none';
-    _bookLoadedNum = null;
-  };
+function showBookError() {
+  var loading = document.getElementById('book-loading');
+  var errBox  = document.getElementById('book-error');
+  var canvas  = document.getElementById('pdf-canvas-wrap');
+  if (loading) loading.style.display = 'none';
+  if (canvas)  canvas.style.display  = 'none';
+  if (errBox)  errBox.style.display  = 'flex';
+}
 
-  iframe.src = viewerUrl;
+function showPdfPage(pageNum) {
+  if (!_pdfDoc) return;
+  pageNum = Math.max(1, Math.min(_pdfTotalPages, pageNum));
+  _pdfCurrentPage = pageNum;
+  updatePdfControls();
+
+  _pdfDoc.getPage(pageNum).then(function(page) {
+    var wrap    = document.getElementById('pdf-canvas-wrap');
+    var loading = document.getElementById('book-loading');
+    var errBox  = document.getElementById('book-error');
+    if (!wrap) return;
+
+    // Adapter le scale à la largeur du conteneur
+    var container = document.getElementById('book-panel-viewer');
+    var width     = container ? container.clientWidth || 420 : 420;
+    var viewport  = page.getViewport({ scale: 1 });
+    var scale     = (width / viewport.width) * 0.98;
+    var scaled    = page.getViewport({ scale: scale });
+
+    // Recréer le canvas à chaque page
+    wrap.innerHTML = '';
+    var canvas  = document.createElement('canvas');
+    var ctx     = canvas.getContext('2d');
+    canvas.width  = scaled.width;
+    canvas.height = scaled.height;
+    canvas.style.width  = '100%';
+    canvas.style.display = 'block';
+    wrap.appendChild(canvas);
+
+    // Couche de liens cliquables
+    var linkDiv = document.createElement('div');
+    linkDiv.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;';
+    wrap.style.position = 'relative';
+    wrap.appendChild(linkDiv);
+
+    if (loading) loading.style.display = 'none';
+    if (errBox)  errBox.style.display  = 'none';
+    wrap.style.display = 'block';
+
+    page.render({ canvasContext: ctx, viewport: scaled }).promise.then(function() {
+      // Rendre les annotations (liens internes)
+      return page.getAnnotations();
+    }).then(function(annotations) {
+      annotations.forEach(function(ann) {
+        if (ann.subtype !== 'Link') return;
+        var rect = ann.rect;
+        // Convertir les coordonnées PDF en coordonnées écran
+        var x1 = rect[0] * scale;
+        var y1 = scaled.height - rect[3] * scale;
+        var x2 = rect[2] * scale;
+        var y2 = scaled.height - rect[1] * scale;
+        var w  = x2 - x1;
+        var h  = y2 - y1;
+
+        var link = document.createElement('a');
+        link.style.cssText = 'position:absolute;left:' + (x1/canvas.width*100) + '%;top:' + (y1/canvas.height*100) + '%;width:' + (w/canvas.width*100) + '%;height:' + (h/canvas.height*100) + '%;cursor:pointer;';
+
+        if (ann.dest) {
+          // Lien interne — naviguer vers le paragraphe
+          link.href = '#';
+          link.title = 'Aller au paragraphe';
+          link.onclick = (function(dest) {
+            return function(e) {
+              e.preventDefault();
+              _pdfDoc.getDestination(dest).then(function(destArr) {
+                if (!destArr) return;
+                return _pdfDoc.getPageIndex(destArr[0]);
+              }).then(function(idx) {
+                if (idx !== undefined) showPdfPage(idx + 1);
+              });
+            };
+          })(ann.dest);
+        } else if (ann.url) {
+          link.href   = ann.url;
+          link.target = '_blank';
+        }
+        linkDiv.appendChild(link);
+      });
+    });
+  });
+}
+
+function updatePdfControls() {
+  var cur   = document.getElementById('pdf-page-current');
+  var input = document.getElementById('pdf-page-input');
+  var total = document.getElementById('pdf-page-total');
+  var prev  = document.getElementById('pdf-prev');
+  var next  = document.getElementById('pdf-next');
+  var dl    = document.getElementById('book-dl-link');
+  if (cur)   cur.textContent   = _pdfCurrentPage;
+  if (input) input.value       = _pdfCurrentPage;
+  if (total) total.textContent = _pdfTotalPages;
+  if (prev)  prev.disabled     = _pdfCurrentPage <= 1;
+  if (next)  next.disabled     = _pdfCurrentPage >= _pdfTotalPages;
+  // Met à jour le lien de téléchargement
+  var extLink = document.getElementById('book-panel-extlink');
+  var errLink = document.getElementById('book-error-link');
+  if (dl && extLink) dl.href = extLink.href;
+}
+
+function pdfPrevPage() { if (_pdfCurrentPage > 1) showPdfPage(_pdfCurrentPage - 1); }
+function pdfNextPage() { if (_pdfCurrentPage < _pdfTotalPages) showPdfPage(_pdfCurrentPage + 1); }
+function pdfGoToPage(n) {
+  var p = parseInt(n);
+  if (!isNaN(p)) showPdfPage(p);
 }
 
 // ── Toast ────────────────────────────────
