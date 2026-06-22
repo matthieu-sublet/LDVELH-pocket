@@ -543,38 +543,54 @@
       </div>
     </div>
 
-    <!-- ── LIVRE (PDF) ── -->
+    <!-- ── LIVRE (PDF.js) ── -->
     <div class="panel" id="panel-book">
       <div id="book-panel-empty" style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:48px 24px;text-align:center;gap:16px;">
         <div style="font-size:52px;">📖</div>
         <div style="font-family:'Cinzel Decorative',cursive;font-size:14px;color:var(--ink);margin-bottom:4px;">Aucun livre sélectionné</div>
-        <div style="font-size:14px;color:var(--ink-light);line-height:1.7;">
-          Créez ou modifiez votre personnage via le wizard<br>pour associer un livre à votre aventure.
-        </div>
+        <div style="font-size:14px;color:var(--ink-light);line-height:1.7;">Créez votre personnage via le wizard<br>pour associer un livre à votre aventure.</div>
         <button class="roll-btn primary" onclick="reopenWizard()" style="margin-top:8px;">✦ Choisir un livre</button>
       </div>
-      <div id="book-panel-viewer" style="display:none;flex-direction:column;height:100%;">
-        <div style="padding:10px 14px;background:linear-gradient(90deg,rgba(26,15,0,.85),rgba(61,43,15,.85));display:flex;align-items:center;justify-content:space-between;flex-shrink:0;gap:8px;">
-          <span id="book-panel-label" style="font-family:'Cinzel',serif;font-size:11px;letter-spacing:1.5px;color:var(--gold-light);text-transform:uppercase;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">–</span>
-          <a id="book-panel-extlink" href="#" target="_blank" style="color:var(--gold);font-size:18px;text-decoration:none;flex-shrink:0;" title="Ouvrir dans un nouvel onglet">↗</a>
+
+      <div id="book-panel-viewer" style="display:none;flex-direction:column;flex:1;">
+        <!-- Barre titre -->
+        <div style="padding:8px 12px;background:linear-gradient(90deg,rgba(26,15,0,.9),rgba(61,43,15,.9));display:flex;align-items:center;gap:8px;flex-shrink:0;">
+          <span id="book-panel-label" style="font-family:'Cinzel',serif;font-size:10px;letter-spacing:1px;color:var(--gold-light);text-transform:uppercase;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">–</span>
+          <a id="book-panel-extlink" href="#" target="_blank" style="color:var(--gold);font-size:16px;text-decoration:none;flex-shrink:0;" title="Télécharger le PDF">⬇</a>
         </div>
-        <div id="book-loading" style="display:none;flex-direction:column;align-items:center;justify-content:center;padding:40px;gap:16px;flex:1;">
+
+        <!-- Navigation pages -->
+        <div style="display:flex;align-items:center;justify-content:center;gap:8px;padding:6px 12px;background:rgba(26,15,0,.06);border-bottom:1px solid rgba(201,168,76,.2);flex-shrink:0;">
+          <button id="pdf-prev" class="stat-btn" onclick="pdfPrevPage()" style="width:30px;height:30px;font-size:14px;" disabled>‹</button>
+          <span style="font-family:'Cinzel',serif;font-size:11px;color:var(--ink-light);">Page</span>
+          <input id="pdf-page-input" type="number" min="1" value="1"
+            style="width:48px;padding:3px 6px;text-align:center;background:rgba(240,228,200,.8);border:1px solid var(--gold-dark);border-radius:3px;font-family:'Cinzel',serif;font-size:12px;color:var(--ink);"
+            onchange="pdfGoToPage(this.value)">
+          <span style="font-family:'Cinzel',serif;font-size:11px;color:var(--ink-light);">/ <span id="pdf-page-total">–</span></span>
+          <span id="pdf-page-current" style="display:none;"></span>
+          <button id="pdf-next" class="stat-btn" onclick="pdfNextPage()" style="width:30px;height:30px;font-size:14px;" disabled>›</button>
+        </div>
+
+        <!-- Loader -->
+        <div id="book-loading" style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px;gap:16px;flex:1;">
           <div class="book-spinner"></div>
           <div style="font-family:'Cinzel',serif;font-size:11px;letter-spacing:2px;color:var(--gold-dark);text-transform:uppercase;">Chargement du livre…</div>
         </div>
+
+        <!-- Erreur -->
         <div id="book-error" style="display:none;flex-direction:column;align-items:center;justify-content:center;padding:32px 24px;gap:14px;text-align:center;flex:1;">
           <div style="font-size:40px;">⚠️</div>
-          <div style="font-family:'Cinzel',serif;font-size:12px;letter-spacing:1px;color:var(--ink);margin-bottom:4px;">Impossible d'afficher le PDF ici</div>
-          <div style="font-size:13px;color:var(--ink-light);line-height:1.7;">Le serveur bloque l'affichage intégré.<br>Ouvrez le livre dans votre navigateur.</div>
-          <a id="book-error-link" href="#" target="_blank" class="roll-btn primary" style="text-decoration:none;margin-top:8px;">📖 Ouvrir le livre</a>
+          <div style="font-family:'Cinzel',serif;font-size:12px;color:var(--ink);">Impossible de charger le PDF</div>
+          <div style="font-size:13px;color:var(--ink-light);line-height:1.7;">Vérifiez votre connexion internet.</div>
+          <a id="book-error-link" href="#" target="_blank" class="roll-btn primary" style="text-decoration:none;margin-top:8px;">⬇ Télécharger le livre</a>
         </div>
-        <iframe id="book-iframe"
-          src="about:blank"
-          style="flex:1;width:100%;border:none;background:#1a0a00;min-height:calc(100vh - 200px);display:none;"
-          allow="fullscreen">
-        </iframe>
-        <div style="padding:6px 14px;background:rgba(26,15,0,.05);border-top:1px solid rgba(201,168,76,.2);font-size:10px;color:var(--ink-light);text-align:center;flex-shrink:0;">
-          PDF via <a href="https://bibl.remz.ca" target="_blank" style="color:var(--gold-dark);">bibl.remz.ca</a> · Usage personnel uniquement
+
+        <!-- Canvas PDF.js -->
+        <div id="pdf-canvas-wrap" style="display:none;overflow-y:auto;flex:1;background:#525659;padding:8px;">
+        </div>
+
+        <div style="padding:4px 12px;background:rgba(26,15,0,.05);border-top:1px solid rgba(201,168,76,.15);font-size:10px;color:var(--ink-light);text-align:center;flex-shrink:0;">
+          Cliquez sur les numéros de paragraphes pour naviguer · <a id="book-dl-link" href="#" target="_blank" style="color:var(--gold-dark);">Télécharger</a>
         </div>
       </div>
     </div>
