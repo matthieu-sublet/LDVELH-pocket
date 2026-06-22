@@ -1,8 +1,13 @@
 name: Generer Inventaire JSON
 on: [push]
+
 jobs:
   build:
     runs-on: ubuntu-latest
+    # On force explicitement l'autorisation d'écriture pour ce Job
+    permissions:
+      contents: write
+      
     steps:
       - uses: actions/checkout@v3
 
@@ -19,12 +24,11 @@ jobs:
           git config --global user.name 'GitHub Action'
           git config --global user.email 'action@github.com'
           
-          # Vérification avec le bon nom de fichier : books-list.json
           if [ -f "books-list.json" ]; then
             git add books-list.json
             git commit -m "Mise à jour automatique de la liste des livres" || echo "Aucun changement à commiter"
             git push
           else
-            echo "Erreur : Le fichier books-list.json n'a pas été généré par le script Python."
+            echo "Erreur : Le fichier books-list.json n'a pas été généré."
             exit 1
           fi
