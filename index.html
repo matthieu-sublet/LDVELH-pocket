@@ -575,9 +575,31 @@
           <a id="book-error-link" href="#" target="_blank" class="roll-btn primary" style="text-decoration:none;margin-top:4px;">⬇ Télécharger le livre</a>
         </div>
 
-        <!-- Embed natif PDF — qualité originale + liens cliquables -->
-        <div id="pdf-embed-wrap" style="display:none;flex:1;min-height:0;flex-direction:column;">
+        <!-- Message mobile (Android/iOS) -->
+        <div id="book-mobile-msg" style="display:none;flex-direction:column;align-items:center;justify-content:center;padding:32px 24px;gap:16px;text-align:center;flex:1;">
+          <div style="font-size:48px;">📱</div>
+          <div style="font-family:'Cinzel',serif;font-size:13px;letter-spacing:1px;color:var(--ink);">Lecture sur mobile</div>
+          <div style="font-size:13px;color:var(--ink-light);line-height:1.7;max-width:280px;">
+            Les PDF s'ouvrent dans votre lecteur natif sur Android. Les liens de paragraphes fonctionnent normalement.
+          </div>
+          <!-- Chargement en cours -->
+          <div id="book-mobile-loading" style="display:flex;flex-direction:column;align-items:center;gap:12px;">
+            <div class="book-spinner"></div>
+            <div style="font-family:'Cinzel',serif;font-size:10px;letter-spacing:2px;color:var(--gold-dark);text-transform:uppercase;">Préparation…</div>
+          </div>
+          <!-- Prêt -->
+          <div id="book-mobile-ready" style="display:none;flex-direction:column;align-items:center;gap:10px;width:100%;">
+            <button id="book-mobile-open" class="roll-btn primary" style="width:100%;max-width:260px;font-size:13px;padding:14px 20px;">
+              📖 Ouvrir le livre
+            </button>
+            <a id="book-panel-extlink-mobile" href="#" target="_blank" style="font-size:12px;color:var(--gold-dark);text-decoration:none;opacity:.7;">
+              ⬇ Télécharger le PDF
+            </a>
+          </div>
         </div>
+
+        <!-- Embed natif PDF — desktop uniquement -->
+        <div id="pdf-embed-wrap" style="display:none;flex:1;min-height:0;flex-direction:column;"></div>
 
       </div>
     </div>
