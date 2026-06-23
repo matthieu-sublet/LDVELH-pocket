@@ -124,16 +124,48 @@ const THEMES = {
 
 // ── Association livre → thème visuel ───────
 const BOOK_THEMES = {
-  // Science-fiction
-  16: 'scifi', 17: 'scifi', 22: 'scifi', 23: 'scifi', 30: 'scifi', 37: 'scifi',
-  // Post-apocalyptique
-  36: 'postapoc',
-  // Horreur
-  38: 'horror', 39: 'horror', 49: 'horror', 58: 'horror', 59: 'horror',
-  // Japon féodal
-  14: 'samurai',
-  // Égypte antique
-  13: 'egypt',
+  // ── Science-fiction ──
+  //  4 = La Galaxie Tragique
+  //  12 = Le Mercenaire de l'Espace
+  //  15 = Les Trafiquants de Kelter
+  //  18 = La Planète Rebelle
+  //  22 = La Grande Menace des Robots
+  //  27 = Le Chasseur des Étoiles
+  //  31 = L'Empire des Hommes-Lézards
+  //  32 = Les Esclaves de l'Éternité
+  //  33 = Le Justicier de l'Univers
+  //  41 = L'Arpenteur de la Lune (vol.46 github)
+  //  58 = Le Chasseur de Tempêtes
+   4: 'scifi', 12: 'scifi', 15: 'scifi', 18: 'scifi', 22: 'scifi',
+  27: 'scifi', 31: 'scifi', 32: 'scifi', 33: 'scifi', 41: 'scifi',
+  58: 'scifi',
+
+  // ── Post-apocalyptique ──
+  //  13 = Le Combattant de l'Autoroute
+  //  36 = La Nuit des Mutants
+  13: 'postapoc', 36: 'postapoc',
+
+  // ── Horreur ──
+  //  10 = Le Manoir de l'Enfer
+  //  25 = La Forteresse du Cauchemar
+  //  28 = Les Spectres de l'Angoisse
+  //  29 = Les Rôdeurs de la Nuit
+  //  35 = Le Vampire du Château Noir
+  //  52 = La Revanche du Vampire
+  //  54 = La Malédiction de la Momie
+  //  57 = Les Hurlements du Loup-Garou
+  //  59 = La Nuit du Nécromancien
+  //  60 = Massacre à la Tronçonneuse de Zombies
+  10: 'horror', 25: 'horror', 28: 'horror', 29: 'horror', 35: 'horror',
+  52: 'horror', 54: 'horror', 57: 'horror', 59: 'horror', 60: 'horror',
+
+  // ── Japon féodal ──
+  //  20 = L'Épée du Samouraï
+  20: 'samurai',
+
+  // ── Égypte / Monde antique ──
+  // (pas de livre clairement égyptien dans cette numérotation FR)
+  // tous les autres → fantasy (défaut)
 };
 
 /* ══════════════════════════════════════════
