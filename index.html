@@ -543,7 +543,7 @@
       </div>
     </div>
 
-    <!-- ── LIVRE (PDF.js) ── -->
+    <!-- ── LIVRE (fetch→blob→embed natif) ── -->
     <div class="panel" id="panel-book">
       <div id="book-panel-empty" style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:48px 24px;text-align:center;gap:16px;">
         <div style="font-size:52px;">📖</div>
@@ -552,29 +552,19 @@
         <button class="roll-btn primary" onclick="reopenWizard()" style="margin-top:8px;">✦ Choisir un livre</button>
       </div>
 
-      <div id="book-panel-viewer" style="display:none;flex-direction:column;flex:1;">
+      <div id="book-panel-viewer" style="display:none;flex-direction:column;flex:1;min-height:0;">
+
         <!-- Barre titre -->
         <div style="padding:8px 12px;background:linear-gradient(90deg,rgba(26,15,0,.9),rgba(61,43,15,.9));display:flex;align-items:center;gap:8px;flex-shrink:0;">
           <span id="book-panel-label" style="font-family:'Cinzel',serif;font-size:10px;letter-spacing:1px;color:var(--gold-light);text-transform:uppercase;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">–</span>
-          <a id="book-panel-extlink" href="#" target="_blank" style="color:var(--gold);font-size:16px;text-decoration:none;flex-shrink:0;" title="Télécharger le PDF">⬇</a>
-        </div>
-
-        <!-- Navigation pages -->
-        <div style="display:flex;align-items:center;justify-content:center;gap:8px;padding:6px 12px;background:rgba(26,15,0,.06);border-bottom:1px solid rgba(201,168,76,.2);flex-shrink:0;">
-          <button id="pdf-prev" class="stat-btn" onclick="pdfPrevPage()" style="width:30px;height:30px;font-size:14px;" disabled>‹</button>
-          <span style="font-family:'Cinzel',serif;font-size:11px;color:var(--ink-light);">Page</span>
-          <input id="pdf-page-input" type="number" min="1" value="1"
-            style="width:48px;padding:3px 6px;text-align:center;background:rgba(240,228,200,.8);border:1px solid var(--gold-dark);border-radius:3px;font-family:'Cinzel',serif;font-size:12px;color:var(--ink);"
-            onchange="pdfGoToPage(this.value)">
-          <span style="font-family:'Cinzel',serif;font-size:11px;color:var(--ink-light);">/ <span id="pdf-page-total">–</span></span>
-          <span id="pdf-page-current" style="display:none;"></span>
-          <button id="pdf-next" class="stat-btn" onclick="pdfNextPage()" style="width:30px;height:30px;font-size:14px;" disabled>›</button>
+          <a id="book-panel-extlink" href="#" target="_blank" style="color:var(--gold);font-size:15px;text-decoration:none;flex-shrink:0;opacity:.8;" title="Télécharger le PDF">⬇</a>
         </div>
 
         <!-- Loader -->
         <div id="book-loading" style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px;gap:16px;flex:1;">
           <div class="book-spinner"></div>
           <div style="font-family:'Cinzel',serif;font-size:11px;letter-spacing:2px;color:var(--gold-dark);text-transform:uppercase;">Chargement du livre…</div>
+          <div style="font-size:12px;color:var(--ink-light);text-align:center;max-width:240px;line-height:1.6;">Le PDF est téléchargé depuis GitHub. Cela peut prendre quelques secondes.</div>
         </div>
 
         <!-- Erreur -->
@@ -582,16 +572,13 @@
           <div style="font-size:40px;">⚠️</div>
           <div style="font-family:'Cinzel',serif;font-size:12px;color:var(--ink);">Impossible de charger le PDF</div>
           <div style="font-size:13px;color:var(--ink-light);line-height:1.7;">Vérifiez votre connexion internet.</div>
-          <a id="book-error-link" href="#" target="_blank" class="roll-btn primary" style="text-decoration:none;margin-top:8px;">⬇ Télécharger le livre</a>
+          <a id="book-error-link" href="#" target="_blank" class="roll-btn primary" style="text-decoration:none;margin-top:4px;">⬇ Télécharger le livre</a>
         </div>
 
-        <!-- Canvas PDF.js -->
-        <div id="pdf-canvas-wrap" style="display:none;overflow-y:auto;flex:1;background:#525659;padding:8px;">
+        <!-- Embed natif PDF — qualité originale + liens cliquables -->
+        <div id="pdf-embed-wrap" style="display:none;flex:1;min-height:0;flex-direction:column;">
         </div>
 
-        <div style="padding:4px 12px;background:rgba(26,15,0,.05);border-top:1px solid rgba(201,168,76,.15);font-size:10px;color:var(--ink-light);text-align:center;flex-shrink:0;">
-          Cliquez sur les numéros de paragraphes pour naviguer · <a id="book-dl-link" href="#" target="_blank" style="color:var(--gold-dark);">Télécharger</a>
-        </div>
       </div>
     </div>
 
