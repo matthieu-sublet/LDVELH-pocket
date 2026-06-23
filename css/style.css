@@ -263,11 +263,11 @@ body::before {
 .toast.show { transform: translateX(-50%) translateY(0); }
 
 /* ══ BOOK PANEL ══ */
-#panel-book { padding: 0; display: none; flex-direction: column; }
-#panel-book.active { display: flex; }
-#book-panel-viewer { display: none; flex-direction: column; flex: 1; }
-/* Le panneau livre est enfant de .content qui a padding:16px — on le compense */
-.content:has(#panel-book.active) { padding: 0; }
+#panel-book { padding: 0; display: none; flex-direction: column; min-height: 0; }
+#panel-book.active { display: flex; flex: 1; }
+#book-panel-viewer { display: none; flex-direction: column; flex: 1; min-height: 0; }
+#pdf-embed-wrap { flex: 1; min-height: 0; display: none; flex-direction: column; }
+#pdf-embed-wrap embed { flex: 1; width: 100%; min-height: calc(100vh - 130px); border: none; display: block; }
 .save-slot          { border: 1.5px solid rgba(201,168,76,.3); border-radius: 4px; padding: 12px 14px; margin-bottom: 10px; background: rgba(26,15,0,.04); transition: border-color .2s; }
 .save-slot.occupied { border-color: rgba(201,168,76,.5); background: rgba(201,168,76,.06); }
 .save-slot-header   { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
@@ -530,3 +530,6 @@ body,
   animation: spin .8s linear infinite;
 }
 @keyframes spin { to { transform: rotate(360deg); } }
+
+/* Supprimer le padding du content quand le livre est actif */
+.content:has(#panel-book.active) { padding: 0; overflow: hidden; display: flex; flex-direction: column; }
