@@ -2,23 +2,33 @@
    ui.js — Rendu de l'interface principale
 ══════════════════════════════════════════ */
 
-// ── Panneau Livre (fetch → blob → embed natif) ──────────────
-// GitHub raw autorise le fetch (CORS *) mais bloque les iframes.
-// On télécharge le PDF, on crée une blob URL locale, et on
-// l'affiche via <embed> natif du navigateur → qualité 100%,
-// polices intactes, liens de paragraphes cliquables.
+// ── Panneau Livre (fetch → blob) ─────────
+// Desktop : blob → <embed> natif (qualité parfaite + liens)
+// Android : blob → window.open() dans nouvel onglet (seule option fiable)
+// iOS     : blob → window.open() dans nouvel onglet
 
-var _blobCache = {};   // { bookNum: blobUrl }
+var _blobCache = {};
+
+function isAndroid() {
+  return /android/i.test(navigator.userAgent);
+}
+function isIOS() {
+  return /ipad|iphone|ipod/i.test(navigator.userAgent);
+}
+function isMobileDevice() {
+  return isAndroid() || isIOS();
+}
 
 function renderBookPanel() {
-  var empty   = document.getElementById('book-panel-empty');
-  var viewer  = document.getElementById('book-panel-viewer');
-  var loading = document.getElementById('book-loading');
-  var errBox  = document.getElementById('book-error');
-  var label   = document.getElementById('book-panel-label');
-  var extLink = document.getElementById('book-panel-extlink');
-  var errLink = document.getElementById('book-error-link');
+  var empty     = document.getElementById('book-panel-empty');
+  var viewer    = document.getElementById('book-panel-viewer');
+  var loading   = document.getElementById('book-loading');
+  var errBox    = document.getElementById('book-error');
+  var label     = document.getElementById('book-panel-label');
+  var extLink   = document.getElementById('book-panel-extlink');
+  var errLink   = document.getElementById('book-error-link');
   var embedWrap = document.getElementById('pdf-embed-wrap');
+  var mobileMsg = document.getElementById('book-mobile-msg');
 
   // Trouver le livre
   var bookNum = state.bookNum || null;
@@ -40,16 +50,66 @@ function renderBookPanel() {
   empty.style.display  = 'none';
   viewer.style.display = 'flex';
   if (label)   label.textContent = title;
-  if (extLink) extLink.href = pdfUrl;
+  if (extLink) { extLink.href = pdfUrl; extLink.download = book.n + ' - ' + book.t + '.pdf'; }
   if (errLink) errLink.href = pdfUrl;
 
-  // Déjà en cache — afficher directement
+  // ── Sur mobile : message d'info + bouton ouvrir ──
+  if (isMobileDevice()) {
+    if (loading)   loading.style.display   = 'none';
+    if (errBox)    errBox.style.display    = 'none';
+    if (embedWrap) embedWrap.style.display = 'none';
+    if (mobileMsg) {
+      mobileMsg.style.display = 'flex';
+      // Mettre à jour le bouton avec le bon lien
+      var btn = document.getElementById('book-mobile-open');
+      if (btn) {
+        // Déjà en cache → ouvrir directement
+        if (_blobCache[bookNum]) {
+          btn.onclick = function() { window.open(_blobCache[bookNum], '_blank'); };
+          btn.textContent = '📖 Ouvrir le livre';
+          document.getElementById('book-mobile-loading').style.display = 'none';
+          document.getElementById('book-mobile-ready').style.display = 'flex';
+        } else {
+          // Télécharger d'abord
+          document.getElementById('book-mobile-loading').style.display = 'flex';
+          document.getElementById('book-mobile-ready').style.display = 'none';
+          fetch(pdfUrl)
+            .then(function(res) {
+              if (!res.ok) throw new Error('HTTP ' + res.status);
+              return res.blob();
+            })
+            .then(function(blob) {
+              var b = new Blob([blob], { type: 'application/pdf' });
+              var url = URL.createObjectURL(b);
+              _blobCache[bookNum] = url;
+              document.getElementById('book-mobile-loading').style.display = 'none';
+              document.getElementById('book-mobile-ready').style.display = 'flex';
+              btn.onclick = function() { window.open(url, '_blank'); };
+              var mobDl = document.getElementById('book-panel-extlink-mobile');
+              if (mobDl) mobDl.href = pdfUrl;
+            })
+            .catch(function() {
+              document.getElementById('book-mobile-loading').style.display = 'none';
+              // Fallback : lien direct GitHub
+              btn.onclick = function() { window.open(pdfUrl, '_blank'); };
+              var mobDl = document.getElementById('book-panel-extlink-mobile');
+              if (mobDl) mobDl.href = pdfUrl;
+              document.getElementById('book-mobile-ready').style.display = 'flex';
+            });
+        }
+      }
+    }
+    return;
+  }
+
+  // ── Desktop : embed natif ──
+  if (mobileMsg) mobileMsg.style.display = 'none';
+
   if (_blobCache[bookNum]) {
     showEmbed(_blobCache[bookNum]);
     return;
   }
 
-  // Loader
   if (embedWrap) embedWrap.style.display = 'none';
   if (errBox)    errBox.style.display    = 'none';
   if (loading)   loading.style.display   = 'flex';
@@ -60,12 +120,11 @@ function renderBookPanel() {
       return res.blob();
     })
     .then(function(blob) {
-      // Forcer le bon type MIME pour que le navigateur le reconnaisse comme PDF
-      var pdfBlob = new Blob([blob], { type: 'application/pdf' });
-      var blobUrl = URL.createObjectURL(pdfBlob);
-      _blobCache[bookNum] = blobUrl;
+      var b   = new Blob([blob], { type: 'application/pdf' });
+      var url = URL.createObjectURL(b);
+      _blobCache[bookNum] = url;
       if (loading) loading.style.display = 'none';
-      showEmbed(blobUrl);
+      showEmbed(url);
     })
     .catch(function(err) {
       console.warn('PDF fetch failed:', err);
@@ -81,13 +140,11 @@ function showEmbed(blobUrl) {
   if (!embedWrap) return;
   if (loading) loading.style.display = 'none';
   if (errBox)  errBox.style.display  = 'none';
-
-  // Recréer l'embed pour forcer le rechargement
   embedWrap.innerHTML = '';
   var embed = document.createElement('embed');
-  embed.src   = blobUrl;
-  embed.type  = 'application/pdf';
-  embed.style.cssText = 'width:100%;height:100%;border:none;display:block;';
+  embed.src  = blobUrl;
+  embed.type = 'application/pdf';
+  embed.style.cssText = 'width:100%;height:100%;border:none;display:block;flex:1;';
   embedWrap.appendChild(embed);
   embedWrap.style.display = 'flex';
 }
